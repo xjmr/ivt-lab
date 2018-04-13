@@ -1,6 +1,6 @@
 # Labor
 
-- conflict change 1
+- conflicting change 1 & 2
 
 # IVT Spaceship
 
