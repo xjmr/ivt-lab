@@ -1,6 +1,6 @@
 # Labor
 
-- valtoztatas travis build triggerelesre
+- valtoztatas travis build triggerelesre 2
 
 # IVT Spaceship
 
