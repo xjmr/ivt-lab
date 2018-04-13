@@ -1,6 +1,6 @@
 # Labor
 
-- valtoztatas travis build triggerelesre 2
+- conflict change 1
 
 # IVT Spaceship
 
