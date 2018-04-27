@@ -55,5 +55,8 @@ public class GT4500 implements SpaceShip {
         // try to fire both of the torpedo stores
         return fire(primaryTorpedoStore) && fire(secondaryTorpedoStore);
     }
+
+    // unreachable code but removing it causes compile error
+    return false;
   }
 }
