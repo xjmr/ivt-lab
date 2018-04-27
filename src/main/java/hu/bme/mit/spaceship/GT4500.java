@@ -42,22 +42,18 @@ public class GT4500 implements SpaceShip {
   */
   @Override
   public boolean fireTorpedo(FiringMode firingMode) {
-    switch (firingMode) {
-      case SINGLE:
-        if (wasPrimaryFiredLast) {
+    if(firingMode == FiringMode.SINGLE) {
+      if(wasPrimaryFiredLast) {
           // try to fire the secondary first, but if it fails, try the first
           // note the short circuit semantics of operator||
           return fire(secondaryTorpedoStore) || fire(primaryTorpedoStore);
-        }
-        else {
+      } else {
           // try to fire the primary first, then if failed, try the second
           return fire(primaryTorpedoStore) || fire(secondaryTorpedoStore);
-        }
-
-      case ALL:
+      }
+    } else if (firingMode == FiringMode.ALL) {
         // try to fire both of the torpedo stores
         return fire(primaryTorpedoStore) && fire(secondaryTorpedoStore);
     }
   }
-
 }
