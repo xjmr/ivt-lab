@@ -44,12 +44,15 @@ public class GT4500 implements SpaceShip {
   public boolean fireTorpedo(FiringMode firingMode) {
     if(firingMode == FiringMode.SINGLE) {
       if(wasPrimaryFiredLast) {
-          // try to fire the secondary first, but if it fails, try the first
-          // note the short circuit semantics of operator||
-          return fire(secondaryTorpedoStore) || fire(primaryTorpedoStore);
+          // try to fire the secondary if not empty
+          return !secondaryTorpedoStore.isEmpty()
+            ? fire(secondaryTorpedoStore)
+            : fire(primaryTorpedoStore);
       } else {
-          // try to fire the primary first, then if failed, try the second
-          return fire(primaryTorpedoStore) || fire(secondaryTorpedoStore);
+          // try to fire the primary if not empty
+          return !primaryTorpedoStore.isEmpty()
+            ? fire(primaryTorpedoStore) 
+            : fire(secondaryTorpedoStore);
       }
     } else if (firingMode == FiringMode.ALL) {
         // try to fire both of the torpedo stores
