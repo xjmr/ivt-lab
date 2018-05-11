@@ -21,7 +21,6 @@ public class GT4500 implements SpaceShip {
   }
 
   private boolean fire(TorpedoStore store) {
-    if(store.isEmpty()) return false;
     boolean success = store.fire(1);
     wasPrimaryFiredLast = (store == primaryTorpedoStore);
     return success;
@@ -54,12 +53,9 @@ public class GT4500 implements SpaceShip {
             ? fire(primaryTorpedoStore) 
             : fire(secondaryTorpedoStore);
       }
-    } else if (firingMode == FiringMode.ALL) {
+    } else /*if (firingMode == FiringMode.ALL)*/ {
         // try to fire both of the torpedo stores
         return fire(primaryTorpedoStore) && fire(secondaryTorpedoStore);
     }
-
-    // unreachable code but removing it causes compile error
-    return false;
   }
 }
